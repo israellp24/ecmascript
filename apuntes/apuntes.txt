@@ -1,0 +1,21 @@
+ // usando Promesas
+    callEndpoint('api/getidbyusername/davos')
+    	.then(results => callEndpoint('api/getfollowersbyid' + results.userId))
+    	.then(results => callEndpoint('api/someothercall'))
+    	.then(results => callEndpoint('api/someothercall'))
+    	.then(results => callEndpoint('api/someothercall'))
+    	.then(results => callEndpoint('api/someothercall'))
+    
+    // usando Async Await
+    async function callEndpoints() {
+    	const userResults = await callEndpoint('api/getidbyusername/davos')
+    	const followersResults = await callEndpoint('api/getfollowersbyid' + userResults.userId)
+    	const someResults = await callEndpoint('api/someothercall')
+    	const moreResults = await callEndpoint('api/someothercall')
+    	const anotherResults = await callEndpoint('api/someothercall')
+    	const finalResults = await callEndpoint('api/someothercall')
+    
+    	return finalResults
+    }
+
+    callEndpoints()
